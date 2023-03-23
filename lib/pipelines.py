@@ -24,7 +24,7 @@ class Pipelines:
 			ids 	  			   = project['ids']
 
 			pool = Pool(20)
-			data = pool.map(self.get_papeline_info, ids)
+			data = pool.map(self.get_pipeline_info, ids)
 			
 			for labels in data:
 				
@@ -64,8 +64,8 @@ class Pipelines:
 				'ids' 		: ids
 			}
 	
-	
-	def get_papeline_info(self, id):
+
+	def get_pipeline_info(self, id):
 		
 		req = requests.get(
 			f'{self.config.url}/{self.config.organization}/{self.currentProjectId}/_apis/pipelines/{id}?api-version={self.api_version}',
