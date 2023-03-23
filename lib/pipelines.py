@@ -77,8 +77,8 @@ class Pipelines:
 			data = json.loads(req.text)
 			if 'fullName' in data['configuration']['repository']:
 				return {
-					'name' 		     : str(data['name']),
-					'id'   		     : str(data['id']),
+					'name'           : str(data['name']),
+					'id'             : str(data['id']),
 					'projectId'      : str(self.currentProjectId),
 					'repositoryName' : str(data['configuration']['repository']['fullName']),
 					'repositoryType' : str(data['configuration']['repository']['type']),
