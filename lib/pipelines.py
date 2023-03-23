@@ -37,13 +37,8 @@ class Pipelines:
                 	'azure_devops_pipeline_info',
                 	value=1,
                 	labels=labels)
-				
 
 				yield azure_devops_pipeline_info
-
-
-		
-		
 
 		
 	def get_ids(self, projectId):
@@ -61,7 +56,7 @@ class Pipelines:
 					ids.append(pipeline['id'])
 			return {
 				'projectId' : projectId,
-				'ids' 		: ids
+				'ids'       : ids
 			}
 	
 
