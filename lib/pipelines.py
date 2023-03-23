@@ -65,7 +65,6 @@ class Pipelines:
 			}
 	
 	
-	# https://dev.azure.com/stonepagamentos/5d794693-0aac-4e1c-8e44-7e3552514dd3/_apis/pipelines/3950\?api-version\=7.1-preview.1 
 	def get_papeline_info(self, id):
 		
 		req = requests.get(
