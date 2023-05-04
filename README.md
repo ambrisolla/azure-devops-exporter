@@ -36,16 +36,16 @@ options:
   --projects PROJECTS   Project to be scanned
 ```
 
-### Example
+## Example
 ```bash
 ./azure-devops-exporter.py --pat YOUR_PAT --org=AZ_DEVOPS_ORG --http-server-port=9186 --scrape-seconds=300 --projects="PROJECT_ID_X,PROJECT_ID_Y, PROJECT_ID_Z"
 ```
 
-### Dashboard example
+## Dashboard example
 
 <img src="grafana/azure-pipelines-dashboard.png">
 <a href="grafana/azure-pipelines-dashboard.json">Dashboard JSON</a>
 
-### License
+## License
 
 MIT License.
