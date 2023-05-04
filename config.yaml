@@ -1,6 +1,0 @@
-pat: XXX
-url: https://dev.azure.com
-organization: XXX
-http_server_port: 9186
-projects:
-  - XXX

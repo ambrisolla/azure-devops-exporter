@@ -13,7 +13,6 @@ class Pipelines:
 		self.currentProjectId = None
 
 	def collect(self):
-		yield GaugeMetricFamily('pipeline', 'pipes', value=1)
 		
 		pool = Pool(20)
 		project_pipeline_ids  = pool.map(self.get_ids, self.config.projects)
@@ -47,7 +46,7 @@ class Pipelines:
 			auth=self.config.auth)
         
 		if req.status_code != 200:
-			print(f'Error ({req.status_code}): {req.status_code}')
+			print(f'Error ({req.status_code}): {req.reason}')
 		else:	
 			data = json.loads(req.text)
 			ids = []
@@ -60,7 +59,7 @@ class Pipelines:
 			}
 	
 
-	def get_pipeline_info(self, id):
+	def get_pipeline_info(self, id):		
 		
 		req = requests.get(
 			f'{self.config.url}/{self.config.organization}/{self.currentProjectId}/_apis/pipelines/{id}?api-version={self.api_version}',
@@ -70,7 +69,7 @@ class Pipelines:
 			print(f'Error ({req.status_code}): {req.status_code}')
 		else:
 			data = json.loads(req.text)
-			if 'fullName' in data['configuration']['repository']:
+			if 'fullName' in data['configuration']['repository']:		
 				return {
 					'name'           : str(data['name']),
 					'id'             : str(data['id']),

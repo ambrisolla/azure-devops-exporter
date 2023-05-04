@@ -43,9 +43,10 @@ class Projects:
         request = requests.get(
             f'{self.config.url}/{self.config.organization}/_apis/projects/{projectId}?api-version={self.api_version}',
             auth=self.config.auth)
+        print(request.url)
 
         if request.status_code != 200:
-            print(f'Error ({request.status_code}): {request.text}')
+            print(f'Error ({request.status_code}): {request.reason}')
         else:
             data = json.loads(request.text)
             return {
